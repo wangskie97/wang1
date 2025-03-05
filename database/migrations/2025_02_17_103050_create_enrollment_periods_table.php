@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -22,6 +23,39 @@ return new class extends Migration
             $table->timestamps();
 
         });
+
+        
+
+        DB::table('enrollment_periods')->insert([
+            [
+                "school_year" => '2030-2031',
+                "semester" => '1st semester',
+                "enroll_month" => 'may',
+                "year_level" => '2rd year',
+                "status" => 'irregular',
+                "max_participants_per_day" => '40',
+
+            ],
+            [
+                "school_year" => '2029-2030',
+                "semester" => '2nd semester',
+                "enroll_month" => 'december',
+                "year_level" => '1sd year',
+                "status" => 'regular',
+                "max_participants_per_day" => '40',
+
+            ],
+            [
+                "school_year" => '2030-2031',
+                "semester" => '2nd semester',
+                "enroll_month" => 'december',
+                "year_level" => '1sd year',
+                "status" => 'regular',
+                "max_participants_per_day" => '40',
+
+            ]
+        ]);
+
     }
 
     /**

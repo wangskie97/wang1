@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -23,6 +24,39 @@ return new class extends Migration
             $table->foreign('enrollment_id')->references('id')->on('enrollment_periods')->onDelete('cascade')->onUpdate('cascade');
 
         });
+        DB::table('enrollment_appointments')->insert([
+            [
+                "enrollee_id" => '1',
+                "enrollment_id" => '1',
+                "exam_day" => '8',
+                "exam_time" => '08:00',
+                "status" => 'pending',
+                
+
+            ],
+            [
+                "enrollee_id" => '2',
+                "enrollment_id" => '2',
+                "exam_day" => '8',
+                "exam_time" => '08:00',
+                "status" => 'pending',
+                
+
+            ],
+            [
+                "enrollee_id" => '2',
+                "enrollment_id" => '2',
+                "exam_day" => '8',
+                "exam_time" => '08:00',
+                "status" => 'pending',
+                
+
+            ]
+        ]);
+
+
+        
+
     }
 
     /**
